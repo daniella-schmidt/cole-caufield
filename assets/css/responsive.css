@@ -1,0 +1,558 @@
+/* --- Menu mobile --- */
+@media (max-width: 992px) {
+  .header {
+    display: none;
+  }
+
+  .mobile-header {
+    display: block;
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
+    z-index: 9999;
+    box-shadow: 5px 6px 60px rgba(17, 29, 59, 0.04);
+  }
+
+  #offcanvas-nav .m-nav {
+    position: fixed;
+    height: 100%;
+    z-index: 9999;
+  }
+}
+
+/* --- Grid de destaques (Product) --- */
+@media (max-width: 1024px) {
+  .grid-sizer,
+  .grid-item {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 446px) {
+  .grid-sizer,
+  .grid-item {
+    width: 100%;
+  }
+}
+
+/* --- Telas pequenas (até 767px) --- */
+@media (max-width: 767px) {
+  .container {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  /* Banner */
+  .banner {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .banner-text {
+    margin-top: 60px;
+  }
+
+  .banner-text h1 {
+    font-size: 35px;
+    line-height: 50px;
+    text-align: center;
+  }
+
+  .banner-text p {
+    font-size: 16px;
+    line-height: 155%;
+    padding-top: 15px;
+    text-align: center;
+    margin: 0;
+  }
+
+  .banner-vic {
+    display: none;
+  }
+
+  .banner-vic-1 {
+    display: none;
+  }
+
+  .banner-btn-item {
+    display: flex;
+    gap: 36px;
+    justify-content: center;
+  }
+
+  .banner-btn-left .btn-style-1 {
+    width: 120px;
+  }
+
+  .banner-img img {
+    width: 100%;
+  }
+
+  .banner-img .banner-item {
+    position: unset;
+  }
+
+  /* Sobre */
+  .about {
+    padding: 60px 0;
+  }
+
+  .position-img {
+    display: none;
+  }
+
+  .about-text h2 {
+    font-size: 29px;
+    text-align: center;
+  }
+
+  .about-text p {
+    font-size: 16px;
+    line-height: 152%;
+    padding-top: 24px;
+    text-align: center;
+  }
+
+  .about-victor {
+    display: none;
+  }
+
+  .signature {
+    margin-top: 57px;
+    text-align: center;
+  }
+
+  /* Barras de progresso */
+  .proress-item-text-two {
+    display: flex;
+    gap: 70px;
+    position: relative;
+    padding-top: 38px;
+    overflow: visible; /* garante que a barra não seja cortada */
+  }
+
+  .proress-item-text-two::after {
+    width: 331px;
+  }
+
+  .proress-item-text-two::before {
+    position: absolute;
+    width: 260px;
+    bottom: -12px;
+    left: 0;
+    height: 6px;
+    background: #A50F27;
+    border-radius: 26px;
+    content: '';
+    width: var(--progress-width, 0%);
+    max-width: 331px;
+    transition: width 1.5s ease-in-out;
+  }
+
+  /* Habilidades */
+  .service {
+    padding: 0 0 60px 0;
+  }
+
+  .service-head h2 {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .service-vic {
+    display: none;
+  }
+
+  .service-text {
+    padding-top: 20px;
+    text-align: center;
+  }
+
+  .service-item {
+    margin-bottom: 30px;
+  }
+
+  .service .slick-dots {
+    margin: 0 0 0 0;
+  }
+
+  .service-item .service-item-text h3 {
+    font-size: 24px;
+  }
+
+  /* Destaques (Product) */
+  .Product {
+    padding: 60px 0;
+    margin-top: 0;
+  }
+
+  .Product-head h2 {
+    text-align: center;
+    font-size: 40px;
+    line-height: 50px;
+  }
+
+  .Product-vic {
+    display: none;
+  }
+
+  .Product-item {
+    margin-top: 30px;
+  }
+
+  .Product-top {
+    margin-top: 0;
+  }
+
+  /* Carreira (Thought) */
+  .thought {
+    padding: 60px 0;
+  }
+
+  .thought-text h2 {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .thought-vic {
+    display: none;
+  }
+
+  .faq {
+    width: 100%;
+  }
+
+  .accordion-button {
+    font-size: 16px;
+  }
+
+  /* Formulário */
+  .send {
+    margin-top: 50px;
+  }
+
+  .send .send-item .send-inner {
+    display: inline-grid;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .send .send-item .send-btn {
+    text-align: center;
+  }
+
+  /* Footer */
+  footer {
+    padding-top: 60px;
+  }
+
+  .footer-logo-item {
+    border-right: 1px solid transparent;
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .footer-logo-icon {
+    display: flex;
+    justify-content: center;
+  }
+
+  .footer-link-df {
+    border-right: 1px solid transparent;
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .official {
+    margin-top: 40px;
+    text-align: center;
+    padding-left: 0;
+  }
+
+  .official-btn {
+    display: flex;
+    justify-content: center;
+  }
+
+  .official-btn .official-btn-left .f-b-text {
+    width: 100%;
+  }
+
+  .copyright {
+    margin-top: 70px;
+  }
+
+  .copyright-text h5 {
+    font-size: 14px;
+  }
+}
+
+/* --- Telas médias (768px – 991px) --- */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .container {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .banner {
+    padding: 80px 0;
+  }
+
+  .banner-text {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  .banner-text h1 {
+    font-size: 54px;
+    line-height: 70px;
+  }
+
+  .banner-vic-1 {
+    display: none;
+  }
+
+  .banner-btn-item {
+    display: flex;
+    justify-content: center;
+  }
+
+  .banner-img img {
+    width: 100%;
+  }
+
+  .banner-img .banner-item {
+    position: unset;
+  }
+
+  .banner-vic {
+    display: none;
+  }
+
+  .position-img {
+    display: none;
+  }
+
+  .about {
+    padding: 80px 0;
+  }
+
+  .about-text h2 {
+    text-align: center;
+  }
+
+  .about-text .about-victor {
+    right: 255px;
+    top: 68px;
+  }
+
+  .proress-item {
+    justify-content: center;
+    display: flex;
+  }
+
+  .signature {
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  .service {
+    padding: 90px 0 0 0;
+  }
+
+  .service-head h2 {
+    text-align: center;
+  }
+
+  .service-text p {
+    text-align: center;
+  }
+
+  .service-vic {
+    display: none;
+  }
+
+  .Product {
+    padding: 60px 0;
+    margin-top: 0;
+  }
+
+  .Product-vic {
+    position: absolute;
+    top: -4px;
+    right: 45px;
+  }
+
+  .thought {
+    padding: 80px 0;
+  }
+
+  .thought-text h2 {
+    font-size: 48px;
+  }
+
+  .thought-vic {
+    display: none;
+  }
+
+  .faq {
+    width: 100%;
+  }
+
+  .send {
+    margin-top: 50px;
+  }
+
+  .footer-logo-item {
+    border-right: 1px solid transparent;
+    padding-right: 0;
+  }
+
+  .footer-link-df {
+    border-right: 1px solid transparent;
+    display: flex;
+    justify-content: center;
+  }
+
+  .official {
+    margin-top: 50px;
+    padding-left: 0;
+  }
+
+  .copyright {
+    margin-top: 70px;
+  }
+}
+
+/* --- Telas grandes (992px – 1199px) --- */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .container {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .banner {
+    padding: 220px 0 66px 0;
+  }
+
+  .banner-img .banner-item {
+    position: unset;
+  }
+
+  .banner-img img {
+    width: 100%;
+  }
+
+  .banner-text h1 {
+    font-size: 50px;
+    line-height: 70px;
+  }
+
+  .banner-vic,
+  .banner-vic-1 {
+    display: none;
+  }
+
+  .position-img {
+    position: absolute;
+    top: -174px;
+    left: -34px;
+  }
+
+  .about-text h2 {
+    font-size: 40px;
+  }
+
+  .about-text .about-victor {
+    position: absolute;
+    top: -8px;
+    right: 0;
+  }
+
+  .service-head h2 {
+    font-size: 40px;
+  }
+
+  .service-vic {
+    position: absolute;
+    top: -10px;
+    right: -1px;
+  }
+
+  .service-item .service-item-text h3 {
+    font-size: 23px;
+  }
+
+  .Product {
+    padding: 80px 0;
+    margin-top: 0;
+  }
+
+  .Product-vic {
+    right: 160px;
+  }
+
+  .thought-text h2 {
+    font-size: 40px;
+  }
+
+  .thought-vic {
+    position: absolute;
+    right: -15px;
+    top: 0;
+  }
+
+  .faq {
+    width: 100%;
+  }
+
+  .send .send-item .send-inner {
+    display: grid;
+    gap: 20px;
+  }
+
+  .accordion-button {
+    font-size: 20px;
+  }
+}
+
+/* --- Telas muito largas (1440px+) – ajustes pontuais --- */
+@media (max-width: 1440px) {
+  .banner-pos img {
+    width: 100%;
+  }
+
+  .position-img {
+    position: absolute;
+    top: -283px;
+    left: -165px;
+  }
+
+  .position-img .about-img img {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .banner-pos img {
+    width: 120%;
+  }
+}
+
+/* --- Correção para a barra de progresso em desktop --- */
+.proress-item-text-two {
+  overflow: visible; /* garante que a barra não seja cortada */
+}
+
+.proress-item-text-two::before {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  height: 6px;
+  background: #A50F27;
+  border-radius: 26px;
+  width: var(--progress-width, 0%);
+  max-width: 481px;
+  transition: width 1.5s ease-in-out;
+}

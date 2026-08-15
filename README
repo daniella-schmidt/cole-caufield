@@ -1,0 +1,60 @@
+# 🏒 Cole Caufield - Página Interativa
+
+![GitHub language count](https://img.shields.io/github/languages/count/daniella-schmidt/cole-caufield)
+![GitHub top language](https://img.shields.io/github/languages/top/daniella-schmidt/cole-caufield)
+![GitHub last commit](https://img.shields.io/github/last-commit/daniella-schmidt/cole-caufield)
+![Website](https://img.shields.io/website?url=https%3A%2F%2Fdaniella-schmidt.github.io%2Fcole-caufield%2F)
+
+Projeto desenvolvido para a disciplina **Programação IV** da **UNOESC**, com o objetivo de criar uma página web estática e interativa aplicando os pilares do desenvolvimento front-end moderno: HTML semântico, CSS responsivo e JavaScript para interatividade.
+
+A página é um **fan-page** do jogador de hóquei no gelo **Cole Caufield**, atacante do Montreal Canadiens.
+
+---
+
+## Sobre o Projeto
+
+Esta página web apresenta a trajetória, habilidades, estatísticas e destaques da carreira de Cole Caufield. O design foi inspirado nas cores do Montreal Canadiens (vermelho, azul e branco) e conta com uma experiência imersiva para os fãs de hóquei.
+
+---
+
+## Funcionalidades
+
+- **Estrutura Semântica** com HTML5 (`<header>`, `<main>`, `<section>`, `<article>`, `<footer>`)
+- **Design Responsivo** com Flexbox e media queries (mobile-first)
+- **Efeitos de Hover** em botões, cards e links
+- *Contadores Animados** (estatísticas da carreira com CounterUp)
+- **Player de Áudio** (música tema "Mr. Saturday Night" com controle play/pause)
+- **Lightbox para Vídeos** (VenoBox integrado ao YouTube)
+- **Galeria em Masonry** (Isotope para os destaques da carreira)
+- **Formulário de Contato** funcional (com alerta de envio)
+- **Menu Mobile** (offcanvas com animação)
+- **Botão "Voltar ao Topo"** com scroll suave
+- **Atualização Dinâmica do Ano** no copyright (JavaScript)
+
+---
+
+## Biblioteca e suas utilizações
+
+| Tecnologia | Finalidade |
+|------------|------------|
+| **HTML5** | Estruturação semântica da página |
+| **CSS3** | Estilização, Flexbox, animações e responsividade |
+| **JavaScript (Vanilla)** | Interações básicas (alert, toggle, innerHTML, addEventListener) |
+| **jQuery** | Manipulação do DOM e plugins |
+| **Bootstrap 5** | Grid e componentes (Accordion, etc.) |
+| **Slick Carousel** | Carrossel de habilidades |
+| **Isotope** | Layout Masonry para a galeria de destaques |
+| **VenoBox** | Lightbox para vídeos e imagens |
+| **CounterUp + Waypoints** | Animação de contadores estatísticos |
+
+---
+
+## Como visualizar
+
+### Opção 1 - Online (GitHub Pages)
+🔗 [**Clique aqui para acessar a página publicada**](https://daniella-schmidt.github.io/cole-caufield/)  
+
+### Opção 2 - Localmente
+1. Clone este repositório:
+   ```bash
+   git clone https://github.com/daniella-schmidt/cole-caufield.git
