@@ -130,12 +130,7 @@ $(function () {
   // ========== 9. ANO NO COPYRIGHT – Atualização automática (innerText) ==========
   document.getElementById('currentYear').innerText = new Date().getFullYear();
 
-  // ======================================================================
-  // ========== FUNÇÕES EXIGIDAS PELOS REQUISITOS AVALIATIVOS ==========
-  // ======================================================================
-
   // ========== 10. LEIA MAIS / LEIA MENOS – Toggle de seção com addEventListener ==========
-  // [REQUISITO 2 – Mostrar/esconder seção com addEventListener]
   const readMoreBtn = document.getElementById('read-more-btn');
   const aboutExtra = document.getElementById('about-extra');
 
@@ -154,7 +149,6 @@ $(function () {
   }
 
   // ========== 11. CONTADOR DE VISITAS – localStorage (com ícone e plural) ==========
-  // [REQUISITO ADICIONAL – contador com localStorage]
   const visitCounterEl = document.getElementById('visit-counter');
   let visitas = parseInt(localStorage.getItem('visitas')) || 0;
   visitas++;
@@ -165,7 +159,6 @@ $(function () {
   }
 
   // ========== 12. SAUDAÇÃO DINÂMICA ENQUANTO DIGITA – Coleta de dado de campo (value) ==========
-  // [REQUISITO 4 – Coletar e exibir dados inseridos em um campo – em tempo real]
   const nomeInputLive = document.getElementById('exampleFormControlInput1');
   const liveGreeting = document.getElementById('live-greeting');
 
@@ -177,7 +170,6 @@ $(function () {
   }
 
   // ========== 13. CONTADOR DE CARACTERES DA MENSAGEM – addEventListener + innerText (bônus) ==========
-  // [REQUISITO 3 – Alterar conteúdo com innerText]
   const mensagemTextarea = document.getElementById('exampleFormControlTextarea1');
   const charCounter = document.getElementById('char-counter');
   const LIMITE_CARACTERES = 300;
@@ -215,7 +207,6 @@ $(function () {
   }
 
   // ========== 15. FORMULÁRIO DE CONTATO – Exibição de saudação personalizada com alert() ==========
-  // [REQUISITO 1 – Exibir saudação com alert()]
   const btnEnviar = document.querySelector('.send-btn .btn-style-1 a');
   if (btnEnviar) {
     btnEnviar.addEventListener('click', function (e) {
