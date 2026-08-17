@@ -14,10 +14,12 @@ $(function () {
   function openNav() {
     document.body.style.overflowY = "hidden";
     $("#offcanvas-nav").addClass("open");
+    document.getElementById('nav-opn-btn').setAttribute('aria-expanded', 'true');
   }
   function closeNav() {
     document.body.style.overflowY = "";
     $("#offcanvas-nav").removeClass("open");
+    document.getElementById('nav-opn-btn').setAttribute('aria-expanded', 'false');
   }
   $("#nav-opn-btn").on("click", openNav);
   $("#nav-cls-btn").on("click", closeNav);
@@ -93,13 +95,25 @@ $(function () {
     ],
   });
 
-  // ========== 7. COUNTERUP – Animação de números nas estatísticas ==========
-  $(".counter").counterUp({
-    delay: 100,
-    time: 5000,
-  });
+  // ========== 7. COUNTERUP + BARRAS DE PROGRESSO ==========
+  if ($(".counter").length) {
+    var totalTime = 5000 + 100;
+    $(".counter").waypoint({
+      handler: function () {
+        $(this.element).counterUp({
+          delay: 100,
+          time: 5000
+        });
+        setTimeout(function () {
+          setProgressBars();
+        }, totalTime);
+      },
+      offset: "100%",
+      triggerOnce: true
+    });
+  }
 
-  // ========== 8. BARRAS DE PROGRESSO – Largura dinâmica com waypoint ==========
+  // ========== 8. BARRAS DE PROGRESSO – Largura dinâmica ==========
   function setProgressBars() {
     var values = [];
     $(".proress-item-text-two .counter").each(function () {
@@ -109,22 +123,13 @@ $(function () {
     if (values.length === 0) return;
     var maxVal = Math.max.apply(null, values);
 
-    $(".proress-item-text-two").each(function () {
+    $(".proress-item-text-two").each(function (index) {
       var $counter = $(this).find(".counter");
       var val = parseInt($counter.text());
       if (isNaN(val)) return;
       var percent = (val / maxVal) * 100;
-      this.style.setProperty("--progress-width", percent + "%");
+      $(this).find('.progress-bar').css('width', percent + '%');
     });
-  }
-
-  if ($(".proress-item").length > 0) {
-    $(".proress-item").waypoint(
-      function () {
-        setProgressBars();
-      },
-      { offset: "100%", triggerOnce: true }
-    );
   }
 
   // ========== 9. ANO NO COPYRIGHT – Atualização automática (innerText) ==========
@@ -137,7 +142,6 @@ $(function () {
   if (readMoreBtn && aboutExtra) {
     readMoreBtn.addEventListener('click', function () {
       const estaEscondido = aboutExtra.style.display === 'none';
-
       if (estaEscondido) {
         aboutExtra.style.display = 'block';
         readMoreBtn.innerText = 'Leia menos';
@@ -148,7 +152,7 @@ $(function () {
     });
   }
 
-  // ========== 11. CONTADOR DE VISITAS – localStorage (com ícone e plural) ==========
+  // ========== 11. CONTADOR DE VISITAS – localStorage ==========
   const visitCounterEl = document.getElementById('visit-counter');
   let visitas = parseInt(localStorage.getItem('visitas')) || 0;
   visitas++;
@@ -158,7 +162,7 @@ $(function () {
     visitCounterEl.innerHTML = `Você já visitou esta página ${visitas} ${visitas === 1 ? 'vez' : 'vezes'}.`;
   }
 
-  // ========== 12. SAUDAÇÃO DINÂMICA ENQUANTO DIGITA – Coleta de dado de campo (value) ==========
+  // ========== 12. SAUDAÇÃO DINÂMICA ENQUANTO DIGITA ==========
   const nomeInputLive = document.getElementById('exampleFormControlInput1');
   const liveGreeting = document.getElementById('live-greeting');
 
@@ -169,7 +173,7 @@ $(function () {
     });
   }
 
-  // ========== 13. CONTADOR DE CARACTERES DA MENSAGEM – addEventListener + innerText (bônus) ==========
+  // ========== 13. CONTADOR DE CARACTERES DA MENSAGEM ==========
   const mensagemTextarea = document.getElementById('exampleFormControlTextarea1');
   const charCounter = document.getElementById('char-counter');
   const LIMITE_CARACTERES = 300;
@@ -188,33 +192,151 @@ $(function () {
   if (audio && audioBtn) {
     audioBtn.addEventListener('click', function () {
       if (audio.paused) {
-        audio.play().catch(() => { /* navegador pode bloquear autoplay */ });
+        audio.play().catch(() => {});
         audioBtn.classList.add('playing');
+        audioBtn.setAttribute('aria-pressed', 'true');
       } else {
         audio.pause();
         audioBtn.classList.remove('playing');
+        audioBtn.setAttribute('aria-pressed', 'false');
       }
     });
 
-    // Inicia áudio na primeira interação do usuário (evita bloqueio)
     document.addEventListener('click', function initAudio() {
       if (audio.paused) {
-        audio.play().catch(() => { });
+        audio.play().catch(() => {});
         audioBtn.classList.add('playing');
+        audioBtn.setAttribute('aria-pressed', 'true');
       }
       document.removeEventListener('click', initAudio);
     }, { once: true });
   }
 
-  // ========== 15. FORMULÁRIO DE CONTATO – Exibição de saudação personalizada com alert() ==========
+  // ========== 15. FORMULÁRIO DE CONTATO – Validação + alert ==========
+  const nomeInput = document.getElementById('exampleFormControlInput1');
+  const sobrenomeInput = document.getElementById('exampleFormControlInput2');
+  const emailInput = document.getElementById('exampleFormControlInput3');
+  const telefoneInput = document.getElementById('exampleFormControlInput4');
+  const mensagemInput = document.getElementById('exampleFormControlTextarea1');
+
+  function criarErro(campo, mensagem) {
+    let erro = campo.parentNode.querySelector('.erro-msg');
+    if (!erro) {
+      erro = document.createElement('small');
+      erro.className = 'erro-msg';
+      erro.style.color = '#dc3545';
+      erro.style.display = 'block';
+      erro.style.marginTop = '4px';
+      campo.parentNode.appendChild(erro);
+    }
+    erro.textContent = mensagem;
+    campo.style.borderColor = '#dc3545';
+  }
+
+  function removerErro(campo) {
+    const erro = campo.parentNode.querySelector('.erro-msg');
+    if (erro) {
+      erro.remove();
+      campo.style.borderColor = '';
+    }
+  }
+
+  function validarEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  function validarTelefone(tel) {
+    const cleaned = tel.replace(/\D/g, '');
+    return cleaned.length >= 10 && cleaned.length <= 11;
+  }
+
+  function validarCampo(campo, testFn, mensagemErro) {
+    const val = campo.value.trim();
+    if (!val || (testFn && !testFn(val))) {
+      criarErro(campo, mensagemErro);
+      return false;
+    } else {
+      removerErro(campo);
+      return true;
+    }
+  }
+
   const btnEnviar = document.querySelector('.send-btn .btn-style-1 a');
   if (btnEnviar) {
     btnEnviar.addEventListener('click', function (e) {
       e.preventDefault();
-      const nome = nomeInputLive ? nomeInputLive.value.trim() : '';
-      const saudacao = nome ? `Obrigado pela mensagem, ${nome}! Retornarei em breve.` : 'Mensagem enviada com sucesso!';
-      alert(saudacao);
+
+      let valido = true;
+      valido &= validarCampo(nomeInput, (v) => v.length >= 2, 'Nome deve ter pelo menos 2 caracteres.');
+      valido &= validarCampo(sobrenomeInput, (v) => v.length >= 2, 'Sobrenome deve ter pelo menos 2 caracteres.');
+      valido &= validarCampo(emailInput, validarEmail, 'Digite um e-mail válido (ex: nome@dominio.com).');
+      valido &= validarCampo(telefoneInput, validarTelefone, 'Digite um telefone válido (ex: (49) 99999-9999).');
+      valido &= validarCampo(mensagemInput, (v) => v.length > 0 && v.length <= 300, 'Mensagem obrigatória (máx. 300 caracteres).');
+
+      if (valido) {
+        const nome = nomeInput.value.trim();
+        const saudacao = nome ? `Obrigado pela mensagem, ${nome}! Retornarei em breve.` : 'Mensagem enviada com sucesso!';
+        alert(saudacao);
+        // Opcional: resetar formulário
+        // document.querySelector('.send-item').querySelectorAll('input, textarea').forEach(el => el.value = '');
+        // removerErro de cada campo
+      }
     });
+  }
+
+  // Remover erros ao digitar (melhor UX)
+  [nomeInput, sobrenomeInput, emailInput, telefoneInput, mensagemInput].forEach(campo => {
+    if (campo) {
+      campo.addEventListener('input', function () {
+        removerErro(this);
+      });
+    }
+  });
+
+  // ========== GRÁFICO DE GOLS (Canvas) ==========
+  var canvas = document.getElementById('goalsChart');
+  if (canvas) {
+    var ctx = canvas.getContext('2d');
+    var width = canvas.width;
+    var height = canvas.height;
+
+    var data = {
+      labels: ['2020-21', '2021-22', '2022-23', '2023-24', '2024-25', '2025-26'],
+      values: [4, 23, 26, 28, 37, 51],
+      colors: ['#042F9C', '#A50F27', '#042F9C', '#A50F27', '#042F9C', '#A50F27']
+    };
+
+    var barWidth = 60;
+    var gap = 30;
+    var startX = (width - (data.labels.length * (barWidth + gap) - gap)) / 2;
+    var maxValue = Math.max(...data.values) * 1.2;
+    var chartHeight = height - 40;
+    var bottomY = height - 20;
+
+    ctx.clearRect(0, 0, width, height);
+
+    ctx.beginPath();
+    ctx.strokeStyle = '#ccc';
+    ctx.lineWidth = 1;
+    ctx.moveTo(20, 20);
+    ctx.lineTo(20, bottomY);
+    ctx.lineTo(width - 20, bottomY);
+    ctx.stroke();
+
+    for (var i = 0; i < data.labels.length; i++) {
+      var x = startX + i * (barWidth + gap);
+      var barHeight = (data.values[i] / maxValue) * chartHeight;
+      var y = bottomY - barHeight;
+
+      ctx.fillStyle = data.colors[i];
+      ctx.fillRect(x, y, barWidth, barHeight);
+
+      ctx.fillStyle = '#333';
+      ctx.font = '12px Work Sans, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(data.values[i], x + barWidth / 2, y - 5);
+      ctx.fillText(data.labels[i], x + barWidth / 2, bottomY + 16);
+    }
   }
 
 });

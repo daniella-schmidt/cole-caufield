@@ -704,8 +704,8 @@ h3 {
 
 .position-img .about-img .about-overlay {
     position: absolute;
-    width: 290px;
-    height: 74px;
+    width: 320px;
+    height: 80px;
     background: #fff;
     bottom: 37px;
     right: 190px;
@@ -770,6 +770,16 @@ h3 {
 
 .proress-item {
     margin-top: 48px;
+}
+
+.progress-bar {
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    height: 6px;
+    background: #A50F27;
+    border-radius: 26px;
+    transition: width 1.5s ease-in-out;
 }
 
 .proress-item-text-two {
@@ -1705,4 +1715,50 @@ footer {
 .theme-toggle-btn:hover {
     transform: scale(1.1);
     background: #A50F27;
+}
+
+.audio-wrapper {
+    position: fixed;
+    bottom: 200px;
+    right: 50px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.audio-label {
+    color: #A50F27;
+    font-weight: 500;
+    font-size: 14px;
+    background: #fff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    /* para não atrapalhar clique */
+}
+
+.audio-wrapper:hover .audio-label {
+    opacity: 1;
+}
+
+#goalsChart {
+    width: 100%;
+    max-width: 600px;
+    /* mantém o limite original */
+    height: auto;
+    aspect-ratio: 3 / 1;
+    /* força a proporção 600x200 */
+    display: block;
+    margin: 0 auto;
+}
+
+.erro-msg {
+    font-size: 13px;
+    font-weight: 400;
 }

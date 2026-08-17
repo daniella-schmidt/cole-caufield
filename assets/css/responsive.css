@@ -568,3 +568,15 @@
   max-width: 481px;
   transition: width 1.5s ease-in-out;
 }
+
+@media (max-width: 767px) {
+  .audio-wrapper {
+    bottom: 200px;
+    right: 20px;
+  }
+
+  .audio-label {
+    font-size: 12px;
+    padding: 2px 10px;
+  }
+}
