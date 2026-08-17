@@ -22,6 +22,7 @@
 
 /* --- Grid de destaques (Product) --- */
 @media (max-width: 1024px) {
+
   .grid-sizer,
   .grid-item {
     width: calc(50% - 20px);
@@ -29,6 +30,7 @@
 }
 
 @media (max-width: 446px) {
+
   .grid-sizer,
   .grid-item {
     width: 100%;
@@ -40,6 +42,7 @@
   .banner-pos {
     margin-top: 5rem;
   }
+
   .container {
     width: 100%;
     padding: 0 20px;
@@ -131,7 +134,8 @@
     gap: 70px;
     position: relative;
     padding-top: 38px;
-    overflow: visible; /* garante que a barra não seja cortada */
+    overflow: visible;
+    /* garante que a barra não seja cortada */
   }
 
   .proress-item-text-two::after {
@@ -292,9 +296,10 @@
 
 /* --- Telas médias (768px – 991px) --- */
 @media (min-width: 768px) and (max-width: 991.98px) {
-  .banner-pos{
+  .banner-pos {
     margin-top: 5rem;
   }
+
   .container {
     width: 100%;
     padding: 0 20px;
@@ -547,7 +552,8 @@
 
 /* --- Correção para a barra de progresso em desktop --- */
 .proress-item-text-two {
-  overflow: visible; /* garante que a barra não seja cortada */
+  overflow: visible;
+  /* garante que a barra não seja cortada */
 }
 
 .proress-item-text-two::before {

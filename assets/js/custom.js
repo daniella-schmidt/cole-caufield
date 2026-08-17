@@ -1,16 +1,16 @@
 $(function () {
 
-  // Venobox para vídeo
+  // ========== 1. VENOBOX – Lightbox para vídeo ==========
   new VenoBox({
     selector: ".my-video-links",
   });
 
-  // Preloader
+  // ========== 2. PRELOADER – Tela de carregamento ==========
   $("#main-preloder")
     .delay(3000)
     .fadeOut(200);
 
-  // Menu mobile
+  // ========== 3. MENU MOBILE – Abrir/fechar offcanvas ==========
   function openNav() {
     document.body.style.overflowY = "hidden";
     $("#offcanvas-nav").addClass("open");
@@ -22,7 +22,7 @@ $(function () {
   $("#nav-opn-btn").on("click", openNav);
   $("#nav-cls-btn").on("click", closeNav);
 
-  // Back to top
+  // ========== 4. BACK TO TOP – Rolagem suave e visibilidade ==========
   $(".back-to-top i").on("click", function () {
     $("html,body").animate({ scrollTop: 0 });
   });
@@ -45,7 +45,7 @@ $(function () {
     }
   });
 
-  // Isotope / Masonry para a grade de destaques (Product)
+  // ========== 5. ISOTOPE – Grade em masonry para destaques ==========
   $(window).on("load", function () {
     if ($(".grid").length > 0) {
       $(".grid").isotope({
@@ -64,7 +64,7 @@ $(function () {
     }
   });
 
-  // Slick carousel para os serviços (habilidades)
+  // ========== 6. SLICK CAROUSEL – Carrossel de habilidades ==========
   $(".mar-top").slick({
     infinite: true,
     slidesToShow: 3,
@@ -93,13 +93,13 @@ $(function () {
     ],
   });
 
-  // CounterUp para estatísticas
+  // ========== 7. COUNTERUP – Animação de números nas estatísticas ==========
   $(".counter").counterUp({
     delay: 100,
     time: 5000,
   });
 
-  // Barras de progresso (baseadas nos números)
+  // ========== 8. BARRAS DE PROGRESSO – Largura dinâmica com waypoint ==========
   function setProgressBars() {
     var values = [];
     $(".proress-item-text-two .counter").each(function () {
@@ -118,8 +118,6 @@ $(function () {
     });
   }
 
-  // Anima as barras quando a seção entra na tela, junto com o counterUp,
-  // em vez de calcular tudo cedo demais (antes do usuário rolar até lá)
   if ($(".proress-item").length > 0) {
     $(".proress-item").waypoint(
       function () {
@@ -129,41 +127,103 @@ $(function () {
     );
   }
 
-  // Atualiza o ano no copyright automaticamente
-  document.getElementById('currentYear').textContent = new Date().getFullYear();
+  // ========== 9. ANO NO COPYRIGHT – Atualização automática (innerText) ==========
+  document.getElementById('currentYear').innerText = new Date().getFullYear();
 
-  // ========== CONTROLE DE ÁUDIO ==========
+  // ======================================================================
+  // ========== FUNÇÕES EXIGIDAS PELOS REQUISITOS AVALIATIVOS ==========
+  // ======================================================================
+
+  // ========== 10. LEIA MAIS / LEIA MENOS – Toggle de seção com addEventListener ==========
+  // [REQUISITO 2 – Mostrar/esconder seção com addEventListener]
+  const readMoreBtn = document.getElementById('read-more-btn');
+  const aboutExtra = document.getElementById('about-extra');
+
+  if (readMoreBtn && aboutExtra) {
+    readMoreBtn.addEventListener('click', function () {
+      const estaEscondido = aboutExtra.style.display === 'none';
+
+      if (estaEscondido) {
+        aboutExtra.style.display = 'block';
+        readMoreBtn.innerText = 'Leia menos';
+      } else {
+        aboutExtra.style.display = 'none';
+        readMoreBtn.innerText = 'Leia mais';
+      }
+    });
+  }
+
+  // ========== 11. CONTADOR DE VISITAS – localStorage (com ícone e plural) ==========
+  // [REQUISITO ADICIONAL – contador com localStorage]
+  const visitCounterEl = document.getElementById('visit-counter');
+  let visitas = parseInt(localStorage.getItem('visitas')) || 0;
+  visitas++;
+  localStorage.setItem('visitas', visitas);
+
+  if (visitCounterEl) {
+    visitCounterEl.innerHTML = `Você já visitou esta página ${visitas} ${visitas === 1 ? 'vez' : 'vezes'}.`;
+  }
+
+  // ========== 12. SAUDAÇÃO DINÂMICA ENQUANTO DIGITA – Coleta de dado de campo (value) ==========
+  // [REQUISITO 4 – Coletar e exibir dados inseridos em um campo – em tempo real]
+  const nomeInputLive = document.getElementById('exampleFormControlInput1');
+  const liveGreeting = document.getElementById('live-greeting');
+
+  if (nomeInputLive && liveGreeting) {
+    nomeInputLive.addEventListener('input', function () {
+      const nome = nomeInputLive.value.trim();
+      liveGreeting.innerText = nome ? `Olá, ${nome}! Bem-vindo(a).` : '';
+    });
+  }
+
+  // ========== 13. CONTADOR DE CARACTERES DA MENSAGEM – addEventListener + innerText (bônus) ==========
+  // [REQUISITO 3 – Alterar conteúdo com innerText]
+  const mensagemTextarea = document.getElementById('exampleFormControlTextarea1');
+  const charCounter = document.getElementById('char-counter');
+  const LIMITE_CARACTERES = 300;
+
+  if (mensagemTextarea && charCounter) {
+    mensagemTextarea.addEventListener('input', function () {
+      const restantes = LIMITE_CARACTERES - mensagemTextarea.value.length;
+      charCounter.innerText = `${restantes} caracteres restantes`;
+    });
+  }
+
+  // ========== 14. CONTROLE DE ÁUDIO – Play/Pause ==========
   const audio = document.getElementById('background-audio');
   const audioBtn = document.querySelector('.audio-button');
 
   if (audio && audioBtn) {
-      // Alterna play/pause ao clicar no botão
-      audioBtn.addEventListener('click', function() {
-          if (audio.paused) {
-              audio.play().catch(() => { /* navegador pode bloquear autoplay */ });
-              audioBtn.classList.add('playing');
-          } else {
-              audio.pause();
-              audioBtn.classList.remove('playing');
-          }
-      });
+    audioBtn.addEventListener('click', function () {
+      if (audio.paused) {
+        audio.play().catch(() => { /* navegador pode bloquear autoplay */ });
+        audioBtn.classList.add('playing');
+      } else {
+        audio.pause();
+        audioBtn.classList.remove('playing');
+      }
+    });
 
-      // Opcional: inicia o áudio quando o usuário interagir com a página (para evitar bloqueio)
-      document.addEventListener('click', function initAudio() {
-          if (audio.paused) {
-              audio.play().catch(() => {});
-              audioBtn.classList.add('playing');
-          }
-          document.removeEventListener('click', initAudio);
-      }, { once: true });
+    // Inicia áudio na primeira interação do usuário (evita bloqueio)
+    document.addEventListener('click', function initAudio() {
+      if (audio.paused) {
+        audio.play().catch(() => { });
+        audioBtn.classList.add('playing');
+      }
+      document.removeEventListener('click', initAudio);
+    }, { once: true });
   }
 
-  // "Enviar!" do formulário de contato
+  // ========== 15. FORMULÁRIO DE CONTATO – Exibição de saudação personalizada com alert() ==========
+  // [REQUISITO 1 – Exibir saudação com alert()]
   const btnEnviar = document.querySelector('.send-btn .btn-style-1 a');
   if (btnEnviar) {
-      btnEnviar.addEventListener('click', function (e) {
-          e.preventDefault();
-          alert('Mensagem enviada com sucesso!');
-      });
+    btnEnviar.addEventListener('click', function (e) {
+      e.preventDefault();
+      const nome = nomeInputLive ? nomeInputLive.value.trim() : '';
+      const saudacao = nome ? `Obrigado pela mensagem, ${nome}! Retornarei em breve.` : 'Mensagem enviada com sucesso!';
+      alert(saudacao);
+    });
   }
+
 });

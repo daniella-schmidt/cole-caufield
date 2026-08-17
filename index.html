@@ -10,6 +10,7 @@
     <link rel="icon" type="image/x-icon" href="/assets/media/image/others/logo/favicon.ico">
 
     <!-- font awesome cdn link  -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/slick.css">
@@ -171,7 +172,8 @@
                                 </span>
                                 Caufield</h1>
 
-                            <p>Atacante do Montreal Canadiens | Ala Direita | Mr. Saturday Night | Visão de jogo e finalização precisa
+                            <p>Atacante do Montreal Canadiens | Ala Direita | Mr. Saturday Night | Visão de jogo e
+                                finalização precisa
                             </p>
 
                             <div class="banner-vic">
@@ -233,7 +235,7 @@
         <!-- Banner fim  -->
 
         <!-- Sobre inicio -->
-        <article class="about" id="about">
+        <section class="about" id="about">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
@@ -247,7 +249,8 @@
                     </div>
 
                     <div class="col-lg-6">
-                        <div class="about-text"> <!-- nos paragrafos tanto no mobile quanto no desktop deve esta alinhado a esquerda-->
+                        <div class="about-text">
+                            <!-- nos paragrafos tanto no mobile quanto no desktop deve esta alinhado a esquerda-->
                             <h2>Sobre Cole Caufield</h2>
                             <p>Cole Caufield é um atacante profissional de hóquei no gelo, atualmente jogando pelo
                                 Montreal Canadiens na NHL. Nascido em 2 de janeiro de 2001 em Stevens Point, Wisconsin,
@@ -260,10 +263,18 @@
                                 2024,
                                 passou a usar a 13 em homenagem a Johnny Gaudreau, um de seus ídolos, falecido naquele
                                 ano.</p>
+
+                            <p id="about-extra" class="about-extra" style="display:none;">Fora das quadras, Caufield é
+                                conhecido pela ética de trabalho e pela proximidade com os torcedores, participando de
+                                ações sociais organizadas pelo Montreal Canadiens. Seu apelido "Mr. Saturday Night"
+                                nasceu da frequência com que decide jogos importantes aos sábados.</p>
+
+                            <button id="read-more-btn" type="button" class="read-more-btn">Leia mais</button>
                         </div>
 
                         <!-- Estatísticas da carreira -->
-                        <div class="proress-item"> <!-- contador nao esta mostrando o css no desktop, funcioando apenas no mobile-->
+                        <div class="proress-item">
+                            <!-- contador nao esta mostrando o css no desktop, funcioando apenas no mobile-->
                             <div class="proress-item-inner">
                                 <div class="proress-item-text-two">
                                     <h5>Jogos na NHL</h5>
@@ -299,7 +310,7 @@
                     </div>
                 </div>
             </div>
-        </article>
+        </section>
         <!-- Sobre fim  -->
 
         <section class="service" id="habilidades">
@@ -465,14 +476,15 @@
         </section>
 
         <!-- Destaques carreira inicio -->
-        <article class="Product" id="projetos">
+        <section class="Product" id="projetos">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="Product-head">
                             <h2>Destaques da Carreira</h2>
                             <div class="Product-vic">
-                                <img src="./assets/media/image/others/elements/Product-vic.png" alt="product-vic-thumb" />
+                                <img src="./assets/media/image/others/elements/Product-vic.png"
+                                    alt="product-vic-thumb" />
                             </div>
                         </div>
                     </div>
@@ -648,7 +660,7 @@
                 </div>
             </div>
             </div>
-        </article>
+        </section>
         <!-- Destaques carreira fim -->
 
         <!-- Trajetorio inicio  -->
@@ -786,21 +798,22 @@
                                         <label for="exampleFormControlInput1" class="form-label">Nome</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1"
                                             placeholder="Seu nome">
+                                        <small id="live-greeting" class="live-greeting"></small>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Sobrenome*</label>
+                                        <label for="exampleFormControlInput2" class="form-label">Sobrenome*</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput2"
                                             placeholder="Seu sobrenome">
                                     </div>
                                 </div>
                                 <div class="send-inner">
                                     <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">E-mail*</label>
+                                        <label for="exampleFormControlInput3" class="form-label">E-mail*</label>
                                         <input type="email" class="form-control" id="exampleFormControlInput3"
                                             placeholder="seu@email.com">
                                     </div>
                                     <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Telefone*</label>
+                                        <label for="exampleFormControlInput4" class="form-label">Telefone*</label>
                                         <input type="number" class="form-control" id="exampleFormControlInput4"
                                             placeholder="(49) 99999-9999">
                                     </div>
@@ -808,7 +821,8 @@
                                 <div class="mb-3">
                                     <label for="exampleFormControlTextarea1" class="form-label">Mensagem*</label>
                                     <textarea class="form-control" id="exampleFormControlTextarea1"
-                                        placeholder="Conte-me sobre sua ideia..." rows="4"></textarea>
+                                        placeholder="Conte-me sobre sua ideia..." rows="4" maxlength="300"></textarea>
+                                    <small id="char-counter" class="live-greeting">300 caracteres restantes</small>
                                 </div>
                                 <div class="send-btn">
                                     <div class="btn-style-1">
@@ -851,7 +865,7 @@
                 </div>
 
                 <!-- Coluna do meio (links) -->
-                <div class="col-lg-2 col-md-5"> 
+                <div class="col-lg-2 col-md-5">
                     <div class="footer-link-df">
                         <div class="footer-link">
                             <div class="footer-link-text">
@@ -879,19 +893,9 @@
                                 <img src="./assets/media/image/others/banner/arena.jpg" alt="official-thumb" />
                             </div>
                         </a>
-                        <!--
                         <div class="official-text-two">
-                            <p>Receba as últimas notícias e atualizações sobre Cole Caufield.</p>
+                            <p id="visit-counter" class="visit-counter"></p>
                         </div>
-                        <div class="official-btn">
-                            <div class="official-btn-left">
-                                <input type="email" class="f-b-text" placeholder="Seu e-mail">
-                            </div>
-                            <div class="official-btn-right">
-                                <a href="#">Inscrever</a>
-                            </div>
-                        </div>
-                        -->
                     </div>
                 </div>
             </div>
@@ -903,7 +907,8 @@
                     <div class="col-lg-12">
                         <div class="copyright-text">
                             <h5>Copyright © <span id="currentYear"></span> – Todos os direitos reservados. Desenvolvido
-                                por <a href="https://github.com/daniella-schmidt">Daniella Vitória Schmidt</a> - Ciência da Computação | 
+                                por <a href="https://github.com/daniella-schmidt">Daniella Vitória Schmidt</a> - Ciência
+                                da Computação |
                                 UNOESC, Videira</h5>
                         </div>
                     </div>
