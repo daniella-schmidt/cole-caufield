@@ -37,6 +37,9 @@
 
 /* --- Telas pequenas (até 767px) --- */
 @media (max-width: 767px) {
+  .banner-pos {
+    margin-top: 5rem;
+  }
   .container {
     width: 100%;
     padding: 0 20px;
@@ -289,6 +292,9 @@
 
 /* --- Telas médias (768px – 991px) --- */
 @media (min-width: 768px) and (max-width: 991.98px) {
+  .banner-pos{
+    margin-top: 5rem;
+  }
   .container {
     width: 100%;
     padding: 0 20px;
