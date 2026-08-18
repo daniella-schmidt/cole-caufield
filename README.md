@@ -1,6 +1,6 @@
 # Cole Caufield
 
-Projeto acadêmico desenvolvido para a disciplina de **Programação IV** da **UNOESC**. A página tem como objetivo apresentar uma **landing page do jogador de hóquei no gelo Cole Caufield**, com foco visual na identidade do **Montreal Canadiens**.
+Projeto acadêmico desenvolvido para a disciplina de **Programação IV** da **UNOESC**. A página tem como objetivo apresentar um **curriculo do jogador de hóquei no gelo Cole Caufield**, com foco visual na identidade do **Montreal Canadiens**.
 
 ## Demonstração
 
